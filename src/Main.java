@@ -105,6 +105,10 @@ public class Main {
             // Calculate host's balance change once all of a player's actions are processed.
             casinoBalance += casinoBalanceChange;
         }
+        
+        // Sort the player lists
+        players.sort(Comparator.comparing(Player::getPlayerId));
+        illegitimatePlayers.sort(Comparator.comparing(playerData -> playerData[0]));
 
         // Output data
         try (PrintWriter writer = new PrintWriter("src/result.txt")) {
